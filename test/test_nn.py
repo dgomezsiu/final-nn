@@ -20,7 +20,17 @@ loss_function = "binary_cross_entropy"
 nn = nn.NeuralNetwork(nn_arch, lr, seed, batch_size, epochs, loss_function)
 
 def test_single_forward():
-    pass
+    W_curr = np.array([[1, -1], [0, 1]])
+    b_curr = np.array([[0], [0]])
+    A_prev = np.array([[2], [-3]])
+    activation = 'relu'
+    A_curr, Z_curr = self.nn._single_forward(W_curr, b_curr, A_prev, activation)
+
+    expected_Z_curr = np.dot(W_curr, A_prev) + b_curr
+    expected_A_curr = np.maximum(0, expected_Z_curr)
+    
+    np.testing.assert_array_equal(Z_curr, expected_Z_curr)
+    np.testing.assert_array_equal(A_curr, expected_A_curr)
 
 def test_forward():
     pass
