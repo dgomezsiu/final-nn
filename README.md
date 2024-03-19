@@ -1,3 +1,5 @@
+![](https://github.com/dgomezsiu/final-nn/workflows/neuralnetwork/badge.svg)
+
 # Final project: neural network
 
 ## Overview
