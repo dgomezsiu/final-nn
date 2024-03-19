@@ -36,7 +36,7 @@ def test_forward():
     X = np.random.randn(4, 2)
 
     # Execute forward pass
-    output, cache = nn.forward(X)
+    output, cache = nn.forward(X.T)
 
     # Validate output shape
     np.testing.assertEqual(output.shape, (4, 2))  # Expect 3 samples, 2 outputs (based on final layer config)
