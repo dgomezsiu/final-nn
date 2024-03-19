@@ -24,7 +24,7 @@ def test_single_forward():
     b_curr = np.array([[0], [0]])
     A_prev = np.array([[2], [-3]])
     activation = 'relu'
-    A_curr, Z_curr = self.nn._single_forward(W_curr, b_curr, A_prev, activation)
+    A_curr, Z_curr = nn._single_forward(W_curr, b_curr, A_prev, activation)
 
     expected_Z_curr = np.dot(W_curr, A_prev) + b_curr
     expected_A_curr = np.maximum(0, expected_Z_curr)
