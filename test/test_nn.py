@@ -7,7 +7,6 @@ import pytest
 from nn import nn
 from nn import preprocess
 
-# Test configuration
 nn_arch = [
     {'input_dim': 2, 'output_dim': 4, 'activation': 'relu'},
     {'input_dim': 4, 'output_dim': 2, 'activation': 'sigmoid'}
