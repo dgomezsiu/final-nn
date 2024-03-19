@@ -33,7 +33,19 @@ def test_single_forward():
     np.testing.assert_array_equal(A_curr, expected_A_curr)
 
 def test_forward():
-    pass
+    X = np.random.randn(3, 2)
+
+    # Execute forward pass
+    output, cache = nn.forward(X)
+
+    # Validate output shape
+    np.testing.assertEqual(output.shape, (3, 2))  # Expect 3 samples, 2 outputs (based on final layer config)
+
+    # Validate cache content
+    np.testing.assertIn('A1', cache)
+    np.testing.assertIn('Z1', cache)
+    np.testing.assertIn('A2', cache)
+    np.testing.assertIn('Z2', cache)
 
 def test_single_backprop():
     pass
