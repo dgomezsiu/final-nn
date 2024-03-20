@@ -42,7 +42,19 @@ def test_forward():
     assert output.shape == (4, 2)
 
 def test_single_backprop():
-    pass
+    W_curr = np.ones((2, 4))   
+    b_curr = np.zeros((2, 1))
+    Z_curr = np.random.randn(2, 3)
+    A_prev = np.random.randn(4, 3)
+    dA_curr = np.random.randn(2, 3)
+    activation_curr = 'relu'
+
+    dA_prev, dW_curr, db_curr = nn._single_backprop(W_curr, Z_curr, A_prev, dA_curr, activation_curr)
+
+    # Assertions to verify the gradients' shapes match expected dimensions
+    assert dA_prev.shape == A_prev.shape
+    assert dW_curr.shape == W_curr.shape
+    assert db_curr.shape == b_curr.shape
 
 def test_predict():
     pass
