@@ -128,10 +128,6 @@ def test_one_hot_encode_seqs():
 
 
     seq_arr = ['A', 'GT', 'ACG']
-    expected_output = np.ndarray([
-        [1, 0, 0, 0],
-        [0, 0, 0, 1, 0, 1, 0, 0],
-        [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
-    ])
+    expected_output = [[1, 0, 0, 0], [0, 0, 0, 1, 0, 1, 0, 0], [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]]
     print(preprocess.one_hot_encode_seqs(seq_arr))
     assert np.all(preprocess.one_hot_encode_seqs(seq_arr), expected_output)
