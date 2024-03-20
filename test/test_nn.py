@@ -104,7 +104,21 @@ def test_mean_squared_error_backprop():
     assert len(gradient) == 3
 
 def test_sample_seqs():
-    pass
+    seqs = ['A', 'B', 'C', 'D']
+    labels = [True, True, False, False]
+    
+    sampled_seqs, sampled_labels = preprocess.sample_seqs(seqs, labels)
+    
+    # check balance
+    assert sum(sampled_labels) == len(sampled_labels) / 2
+
+    labels = [True, True, False, True]  # Only one False
+    
+    sampled_seqs, sampled_labels = preprocess.sample_seqs(seqs, labels)
+    
+    # In this case, we expect at least one duplicate in the negative samples
+    assert len(set(sampled_seqs)) > len(sampled_seqs) / 2
+    assert sum(sampled_labels) == len(sampled_labels) / 2
 
 def test_one_hot_encode_seqs():
     pass
