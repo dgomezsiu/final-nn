@@ -74,7 +74,14 @@ def test_binary_cross_entropy():
     assert np.isclose(loss, expected_loss)
 
 def test_binary_cross_entropy_backprop():
-    pass
+    y_hat = np.array([0.9, 0.2, 0.1, 0.4]).reshape(1, -1)
+    y = np.array([1, 0, 0, 1]).reshape(1, -1)
+
+    # expected gradient
+    expected_gradient = - (np.divide(y, y_hat) - np.divide(1 - y, 1 - y_hat))
+    
+    gradient = np._binary_cross_entropy_backprop(y, y_hat)
+    assert np.isclose(gradient, expected_gradient)
 
 def test_mean_squared_error():
     pass
