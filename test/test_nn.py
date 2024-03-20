@@ -133,4 +133,5 @@ def test_one_hot_encode_seqs():
         [0, 0, 0, 1, 0, 1, 0, 0],
         [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
     ])
+    print(preprocess.one_hot_encode_seqs(seq_arr))
     assert np.all(preprocess.one_hot_encode_seqs(seq_arr), expected_output)
