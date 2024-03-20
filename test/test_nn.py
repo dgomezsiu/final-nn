@@ -57,7 +57,11 @@ def test_single_backprop():
     assert db_curr.shape == b_curr.shape
 
 def test_predict():
-    pass
+    X = np.random.randn(4,2)
+
+    y_hat = nn.predict(X)
+    expected_shape = (4,1)
+    assert y_hat.shape == expected_shape
 
 def test_binary_cross_entropy():
     pass
