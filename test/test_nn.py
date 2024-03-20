@@ -101,7 +101,7 @@ def test_mean_squared_error_backprop():
     # expected gradient
     expected_gradient = (1 / len(y)) * (y_hat - y)
     
-    gradient = nn._mean_squared_error_backprop(y, y_hat).
+    gradient = nn._mean_squared_error_backprop(y, y_hat)
     print(gradient)
     assert gradient.shape() == (4,2)
 
