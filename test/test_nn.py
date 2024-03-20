@@ -81,8 +81,7 @@ def test_binary_cross_entropy_backprop():
     expected_gradient = - (np.divide(y, y_hat) - np.divide(1 - y, 1 - y_hat))
     
     gradient = nn._binary_cross_entropy_backprop(y, y_hat)
-    print(gradient)
-    assert gradient.shape() == (4,2)
+    assert len(gradient) == 4
 
 def test_mean_squared_error():
     y_hat = np.array([1.5, 2.5, 3.5])
@@ -102,8 +101,7 @@ def test_mean_squared_error_backprop():
     expected_gradient = (1 / len(y)) * (y_hat - y)
     
     gradient = nn._mean_squared_error_backprop(y, y_hat)
-    print(gradient)
-    assert gradient.shape() == (4,2)
+    assert len(gradient) == 3
 
 def test_sample_seqs():
     pass
