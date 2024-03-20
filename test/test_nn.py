@@ -121,8 +121,8 @@ def test_sample_seqs():
     assert sum(sampled_labels) == len(sampled_labels) / 2
 
 def test_one_hot_encode_seqs():
-    seq_arr = ['AGTC']
-    expected_output = np.array([[1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0]])
+    seq_arr = ['AGA']
+    expected_output = np.array([[1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0]])
 
     assert np.array_equal(preprocess.one_hot_encode_seqs(seq_arr), expected_output)
 
