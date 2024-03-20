@@ -64,7 +64,14 @@ def test_predict():
     assert y_hat.shape == expected_shape
 
 def test_binary_cross_entropy():
-    pass
+    y_hat = np.array([0.9, 0.2, 0.1, 0.4])
+    y = np.array([1, 0, 0, 1])
+
+    # Expected loss
+    expected_loss = -np.mean(y * np.log(y_hat) + (1 - y) * np.log(1 - y_hat))
+    
+    loss = nn._binary_cross_entropy(y, y_hat)
+    assert np.isclose(loss, expected_loss)
 
 def test_binary_cross_entropy_backprop():
     pass
