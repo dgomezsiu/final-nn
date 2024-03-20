@@ -116,9 +116,21 @@ def test_sample_seqs():
     
     sampled_seqs, sampled_labels = preprocess.sample_seqs(seqs, labels)
     
-    # In this case, we expect at least one duplicate in the negative samples
+    # expect one duplicate in the negative samples
     assert len(set(sampled_seqs)) > len(sampled_seqs) / 2
     assert sum(sampled_labels) == len(sampled_labels) / 2
 
 def test_one_hot_encode_seqs():
-    pass
+    seq_arr = ['AGTC']
+    expected_output = np.array([[1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0]])
+
+    assert preprocess.one_hot_encode_seqs(seq_arr) ==  expected_output
+
+
+    seq_arr = ['A', 'GT', 'ACG']
+    expected_output = np.array([
+        [1, 0, 0, 0],
+        [0, 0, 0, 1, 0, 1, 0, 0],
+        [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1]
+    ])
+    assert preprocess.one_hot_encode_seqs(seq_arr) == expected_output
