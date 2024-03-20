@@ -60,7 +60,7 @@ def test_predict():
     X = np.random.randn(4,2)
 
     y_hat = nn.predict(X)
-    expected_shape = (4,1)
+    expected_shape = (4,2)
     assert y_hat.shape == expected_shape
 
 def test_binary_cross_entropy():
